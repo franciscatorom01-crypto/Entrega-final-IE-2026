@@ -1,127 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IE 2026</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <!-- Configuración responsiva para dispositivos móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio - Imagen Escrita</title>
+  
+  <!-- Importación de la hoja de estilos externa -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Importación de fuentes desde Google Fonts (Geist Pixel) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap" rel="stylesheet">
 </head>
-
-
-<!-- Inicio Body -->
-
 <body>
 
-    <!-- Sección principal -->
-    <header>
-        <h1>Portafolio IE 2026</h1>
-    </header>
-
-    <!-- Contenedor General -->
-    <div id="container">
-
-        <!-- Contenedor lado izquierdo - Parrafo y botón -->
-        <div class="intro">
-            <p>
-                
-            </p>
-            <p>
-                
-
-
-            <a href="https://wiki.ead.pucv.cl/Sitio_Web_IE_-_Javiera_Ruiz" target="_blank">
-                <button>
-                    wiki del proyecto
-                </button>
-            </a>
-
-        </div>
-
-        <!-- Contenedor lado derecho -->
-        <div class="proyectos">
-            <h2>Mis proyectos p5js</h2>
-
-            <!-- Contenedor galería de proyectos -->
-            <div class="galeria">
-                <!-- tarjeta proyecto 1 -->
-                <div class="tarjeta">
-                    <a href="https://editor.p5js.org/jruiz-IE/full/_D3gtXvo_" target="_blank">
-                        <img src="assets/imagen1.png">
-                        </img>
-                        <h3>Tarea 1</h3>
-                    </a>
-                </div>
-
-                <!-- tarjeta proyecto 2 -->
-                <div class="tarjeta">
-                    <a href="">
-                        <img src="assets/imagen2.png">
-                        </img>
-                        <h3>Tarea 2</h3>
-                    </a>
-                </div>
-
-                <!-- tarjeta proyecto 3 -->
-                <div class="tarjeta">
-                    <a href="">
-                        <img src="assets/imagen2.png">
-                        </img>
-                        <h3>Tarea 3</h3>
-                    </a>
-                </div>
-
-                <!-- tarjeta proyecto 4 -->
-                <div class="tarjeta">
-                    <a href="">
-                        <img src="assets/imagen2.png">
-                        </img>
-                        <h3>Tarea 4</h3>
-                    </a>
-                </div>
-
-                <!-- tarjeta proyecto 5 -->
-                <div class="tarjeta">
-                    <a href="">
-                        <img src="assets/imagen2.png">
-                        </img>
-                        <h3>Tarea 5</h3>
-                    </a>
-                </div>
-
-                <!-- tarjeta proyecto 6 -->
-                <div class="tarjeta">
-                    <a href="">
-                        <img src="assets/imagen2.png">
-                        </img>
-                        <h3>Tarea 6</h3>
-                    </a>
-                </div>
-
-                <!-- tarjeta proyecto 7 -->
-                <div class="tarjeta">
-                    <a href="">
-                        <img src="assets/imagen2.png">
-                        </img>
-                        <h3>Tarea 7</h3>
-                    </a>
-                </div>
-                
-                <!-- tarjeta proyecto 8 -->
-                <div class="tarjeta">
-                    <a href="">
-                        <img src="assets/imagen2.png">
-                        </img>
-                        <h3>Tarea 8</h3>
-                    </a>
-                </div>
-
-            </div>
-
-        </div>
-
+  <!-- A. CABECERA PRINCIPAL (Fija en la parte superior) -->
+  <header id="header-principal">
+    <div class="header-container">
+      <!-- Logotipo a la izquierda -->
+      <a href="#inicio" class="logo">frnvtlss</a>
+      
+      <!-- Navegación a la derecha -->
+      <nav class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
     </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="main-wrapper">
+
+    <!-- B. PRESENTACIÓN (#inicio) -->
+    <section id="inicio" class="presentacion-container">
+      <div class="presentacion-grid">
+        
+        <!-- Columna Izquierda: Títulos y Subtítulos -->
+        <div class="presentacion-titulos">
+          <h2 class="titulo-portafolio">PORTAFOLIO</h2>
+          <h1 class="titulo-imagen-escrita">Imagen Escrita</h1>
+          <p class="subtitulo-curso">Código creativo p5.js y encargos</p>
+        </div>
+
+        <!-- Columna Derecha: Texto de Introducción y Botón Wiki -->
+        <div class="presentacion-contenido">
+          <!-- REEMPLAZAR: Tu texto de introducción aquí -->
+          <p class="texto-introduccion">
+            [REEMPLAZAR TEXTO: Escribe aquí tu texto de introducción para la presentación del portafolio, compartiendo sobre tu trabajo y proyectos de código creativo en p5.js.]
+          </p>
+          
+          <!-- Botón de acceso a la Wiki General -->
+          <!-- REEMPLAZAR: Cambia 'https://ejemplo.com/wiki-general' por la URL real de tu wiki -->
+          <a href="https://wiki.ead.pucv.cl/Imagen_Escrita_2026" target="_blank" rel="noopener noreferrer" class="btn-wiki-general">
+            BOTÓN WIKI
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- C. FRANJA GRÁFICA INTERMEDIA -->
+    <section class="franja-grafica">
+      <!-- REEMPLAZAR: Asegúrate de guardar tu imagen como 'franja-banner.png' o similar dentro de la carpeta 'assets/' -->
+      <img src="assets/Franja IE.jpg" alt="Franja gráfica de arte generativo" class="imagen-franja">
+    </section>
+
+<!-- D. GALERÍA DE PROYECTOS (#proyectos) -->
+    <section id="proyectos" class="galeria-proyectos">
+      
+      <!-- TARJETA 01 -->
+      <article class="tarjeta-proyecto">
+        <!-- Columna 1: Franja lateral izquierda (Texto a 0° vertical) -->
+        <div class="franja-lateral-izquierda">
+          <span>E</span>
+          <span>N</span>
+          <span>C</span>
+          <span>A</span>
+          <span>R</span>
+          <span>G</span>
+          <span>O</span>
+          <span class="numero-encargo">01</span>
+        </div>
+        
+        <!-- Columna 2: Imagen Cuadrada 345px x 345px -->
+        <!-- REEMPLAZAR: Ruta de la imagen y URL del proyecto -->
+        <a href="https://editor.p5js.org/-frn.nvt1ss_/full/F4nYm3wGF" target="_blank" rel="noopener noreferrer" class="link-imagen-proyecto">
+          <img src="assets/Encargo 01 IE.jpg" alt="Vista previa Encargo 01" class="img-proyecto">
+        </a>
+        
+        <!-- Columna 3: Enlace WIKI exterior independiente (Times New Roman) -->
+        <!-- REEMPLAZAR: URL a la wiki del proyecto -->
+        <a href="https://wiki.ead.pucv.cl/Encargo_1_IE_-_Who_Really_Cares_-_Francisca_Toro_Moya" target="_blank" rel="noopener noreferrer" class="link-wiki-exterior">
+          WIKI
+        </a>
+      </article>
+
+      <!-- TARJETA 02 -->
+      <article class="tarjeta-proyecto">
+        <div class="franja-lateral-izquierda">
+          <span>E</span>
+          <span>N</span>
+          <span>C</span>
+          <span>A</span>
+          <span>R</span>
+          <span>G</span>
+          <span>O</span>
+          <span class="numero-encargo">02</span>
+        </div>
+        <a href="https://ejemplo.com/proyecto-02" target="_blank" rel="noopener noreferrer" class="link-imagen-proyecto">
+          <img src="assets/proyecto-02.jpg" alt="Vista previa Encargo 02" class="img-proyecto">
+        </a>
+        <a href="https://ejemplo.com/wiki-02" target="_blank" rel="noopener noreferrer" class="link-wiki-exterior">
+          WIKI
+        </a>
+      </article>
+
+      <!-- TARJETA 03 -->
+      <article class="tarjeta-proyecto">
+        <div class="franja-lateral-izquierda">
+          <span>E</span>
+          <span>N</span>
+          <span>C</span>
+          <span>A</span>
+          <span>R</span>
+          <span>G</span>
+          <span>O</span>
+          <span class="numero-encargo">03</span>
+        </div>
+        <a href="https://ejemplo.com/proyecto-03" target="_blank" rel="noopener noreferrer" class="link-imagen-proyecto">
+          <img src="assets/proyecto-03.jpg" alt="Vista previa Encargo 03" class="img-proyecto">
+        </a>
+        <a href="https://ejemplo.com/wiki-03" target="_blank" rel="noopener noreferrer" class="link-wiki-exterior">
+          WIKI
+        </a>
+      </article>
+
+      <!-- TARJETA 04 -->
+      <article class="tarjeta-proyecto">
+        <div class="franja-lateral-izquierda">
+          <span>E</span>
+          <span>N</span>
+          <span>C</span>
+          <span>A</span>
+          <span>R</span>
+          <span>G</span>
+          <span>O</span>
+          <span class="numero-encargo">04</span>
+        </div>
+        <a href="https://ejemplo.com/proyecto-04" target="_blank" rel="noopener noreferrer" class="link-imagen-proyecto">
+          <img src="assets/proyecto-04.jpg" alt="Vista previa Encargo 04" class="img-proyecto">
+        </a>
+        <a href="https://ejemplo.com/wiki-04" target="_blank" rel="noopener noreferrer" class="link-wiki-exterior">
+          WIKI
+        </a>
+      </article>
+
+      <!-- TARJETA 05 -->
+      <article class="tarjeta-proyecto">
+        <div class="franja-lateral-izquierda">
+          <span>E</span>
+          <span>N</span>
+          <span>C</span>
+          <span>A</span>
+          <span>R</span>
+          <span>G</span>
+          <span>O</span>
+          <span class="numero-encargo">05</span>
+        </div>
+        <a href="https://ejemplo.com/proyecto-05" target="_blank" rel="noopener noreferrer" class="link-imagen-proyecto">
+          <img src="assets/proyecto-05.jpg" alt="Vista previa Encargo 05" class="img-proyecto">
+        </a>
+        <a href="https://ejemplo.com/wiki-05" target="_blank" rel="noopener noreferrer" class="link-wiki-exterior">
+          WIKI
+        </a>
+      </article>
+
+      <!-- TARJETA 06 -->
+      <article class="tarjeta-proyecto">
+        <div class="franja-lateral-izquierda">
+          <span>P</span>
+          <span>R</span>
+          <span>O</span>
+          <span>Y</span>
+          <span>E</span>
+          <span>C</span>
+          <span>T</span>
+          <span>O</span>
+          <span class="numero-encargo">06</span>
+        </div>
+        <a href="https://ejemplo.com/proyecto-06" target="_blank" rel="noopener noreferrer" class="link-imagen-proyecto">
+          <img src="assets/proyecto-06.jpg" alt="Vista previa Proyecto 06" class="img-proyecto">
+        </a>
+        <a href="https://ejemplo.com/wiki-06" target="_blank" rel="noopener noreferrer" class="link-wiki-exterior">
+          WIKI
+        </a>
+      </article>
+
+    </section>
+
+    <!-- E. SECCIÓN CONTACTO (#contacto) -->
+    <section id="contacto" class="contacto-container">
+      
+      <!-- Columna Izquierda: Información Académica -->
+      <div class="contacto-info">
+        <h2 class="titulo-contacto">Contacto</h2>
+        <!-- REEMPLAZAR: Detalles de tu institución o datos -->
+        <p class="texto-contacto">
+          Estudiante de Diseño<br>
+          Pontificia Universidad Católica de Valparaíso
+        </p>
+      </div>
+
+      <!-- Columna Derecha: Botón de Perfil y Correo -->
+      <div class="contacto-accion">
+        <!-- REEMPLAZAR: URL del perfil de Casiopea -->
+        <a href="https://ejemplo.com/perfil-casiopea" target="_blank" rel="noopener noreferrer" class="btn-perfil">
+          Botón Perfil Casiopea
+        </a>
+        
+        <!-- REEMPLAZAR: Tu correo electrónico -->
+        <a href="mailto:francisca.toro.m01@mail.com" class="correo-contacto">
+          francisca.toro.m01@mail.com
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- F. PIE DE PÁGINA -->
+  <footer id="pie-pagina">
+    <p class="creditos-footer">&copy; Francisca Toro Moya &middot; IE 2026</p>
+  </footer>
 
 </body>
-
 </html>
