@@ -1,143 +1,518 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* ==========================================================================
+   PORTAFOLIO DIGITAL - CÓDIGO CREATIVO P5.JS
+   ========================================================================== */
 
-/* --- Estilos Generales --- */
+/* 
+   DECLARACIÓN DE FUENTES LOCALES (@font-face)
+   Se incluye 'Miranda Sans' mediante archivos locales dentro de la carpeta assets/fonts/
+*/
+@font-face {
+  font-family: 'Miranda Sans';
+  src: url('assets/fonts/MirandaSans-Regular.woff2') format('woff2'),
+       url('assets/fonts/MirandaSans-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Miranda Sans';
+  src: url('assets/fonts/MirandaSans-SemiBold.woff2') format('woff2'),
+       url('assets/fonts/MirandaSans-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Miranda Sans';
+  src: url('assets/fonts/MirandaSans-Bold.woff2') format('woff2'),
+       url('assets/fonts/MirandaSans-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ==========================================================================
+   RESET BÁSICO Y VARIABLES DE COLOR
+   ========================================================================== */
+:root {
+  /* Paleta cromática estricta */
+  --negro-calido: #1C1C1A;
+  --negro-puro: #000000;
+  --rosa-intenso: #E72887;
+  --azul-acento: #213B86;
+  --blanco: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    font-family: sans-serif;
-    margin: 70px;
-    margin-top:0;
-    padding: 2em;
-    background-color: #f4f4f4;
+  background-color: var(--negro-calido);
+  color: var(--blanco);
+  font-family: 'Miranda Sans', sans-serif;
+  font-size: 24px; /* 18pt ≈ 24px */
+  line-height: 1.4;
+  overflow-x: hidden;
 }
 
-
-h1, h2 {
-    font-family: 'Space Mono';
-    color: #333;
+/* Enlaces generales reset */
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-h3{
-    font-family: 'Open Sans';
-    font-size: 1em;
+/* Layout Centralizado General */
+.main-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 100px 20px 40px 20px; /* Padding superior para dar espacio al header fijo */
 }
 
-/* --- Contenedor Principal --- */
-#container {
-    display: grid;
-    /* Define 2 columnas: la primera ocupa 1 fracción, la segunda 2 fracciones */
-    grid-template-columns: 1fr 2fr;
-    gap: 5em; /* Espacio entre las columnas */
-    align-items: start; /* Alinea los items al inicio */
+/* ==========================================================================
+   A. CABECERA PRINCIPAL (#header-principal)
+   ========================================================================== */
+#header-principal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--rosa-intenso);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* --- Columna Izquierda: Intro --- */
-.intro {
-    /* Por defecto, se ubica en la primera columna del grid */
-    display: flex;
-    flex-direction: column; /* Organiza los elementos internos en una columna */
-    justify-content: center; /* Centra el contenido verticalmente */
+.header-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.intro p {
-    /* El párrafo ya usa el ancho de su contenedor por defecto */
-    font-family: 'Open Sans';
-    text-align: justify;
-    line-height: 1.6;
+/* Logotipo: Times New Roman Bold Italic (72pt original → ~96px web) */
+.logo {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 40px; /* Escalado adecuado para contenedor de cabecera */
+  color: var(--blanco);
+  letter-spacing: 1px;
 }
 
-.intro a {
-    /* El ancla del botón se centrará gracias al 'align-self' */
-    align-self: center; /* Centra este elemento específico en el eje transversal */
-    margin-top: 1em;
+/* Navegación: Times New Roman Bold Italic (24pt original → ~32px web) */
+.nav-links {
+  display: flex;
+  gap: 35px;
 }
 
-.intro button {
-    font-family: 'Space Mono';
-    font-size: 1em;
-    padding: 15px 45px;
-    margin-top: 30px;
-    border: none;
-    background-color: #a588f4;
-    color: #000;
- 
-    cursor: pointer;
-    border-radius: 50px;
-    
+.nav-links a {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 28px; /* ~32px aproximado */
+  color: var(--blanco);
+  transition: opacity 0.3s ease;
 }
 
-.intro button:hover {
-    background: #000; ;
-    color: white;
-
+.nav-links a:hover {
+  opacity: 0.8;
 }
 
+/* ==========================================================================
+   B. PRESENTACIÓN (#inicio)
+   ========================================================================== */
+.presentacion-container {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  padding: 35px 30px;
+  background-color: var(--negro-puro);
+  
+  /* Borde animado de rosa a azul utilizando propiedades avanzadas de gradiente */
+  border: 3px solid transparent;
+  border-image: linear-gradient(90deg, var(--rosa-intenso), var(--azul-acento), var(--rosa-intenso)) 1;
+  animation: borderCycle 6s linear infinite;
+}
 
-/* Columna Derecha: Proyectos */
-.proyectos {
-    display: flex;
+/* Animación del Borde Intercambiable (Propiedad CSS 1) */
+@keyframes borderCycle {
+  0% {
+    border-image: linear-gradient(90deg, var(--rosa-intenso), var(--azul-acento)) 1;
+  }
+  50% {
+    border-image: linear-gradient(90deg, var(--azul-acento), var(--rosa-intenso)) 1;
+  }
+  100% {
+    border-image: linear-gradient(90deg, var(--rosa-intenso), var(--azul-acento)) 1;
+  }
+}
+
+.presentacion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* Título «Portafolio»: Miranda Sans Bold (48pt → ~64px) */
+.titulo-portafolio {
+  font-family: 'Miranda Sans', sans-serif;
+  font-weight: 700;
+  font-size: 42px; /* Ajustado proporcionalmente */
+  color: var(--rosa-intenso);
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+/* Título «Imagen Escrita»: Geist Pixel Regular (72pt → ~96px) */
+.titulo-imagen-escrita {
+  font-family: 'Geist Pixel', monospace, sans-serif;
+  font-weight: 400;
+  font-size: 64px; /* Ajustado para el marco */
+  color: var(--azul-acento);
+  line-height: 1.1;
+  margin-bottom: 30px;
+}
+
+/* Subtítulo: Miranda Sans SemiBold (24pt → ~32px) */
+.subtitulo-curso {
+  font-family: 'Miranda Sans', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--blanco);
+}
+
+/* Columna Derecha */
+.presentacion-contenido {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.texto-introduccion {
+  font-family: 'Miranda Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px; /* Ajuste para lectura de cuerpo de texto */
+  color: var(--blanco);
+  margin-bottom: 40px;
+  text-align: justify;
+}
+
+/* Botón WIKI General */
+.btn-wiki-general {
+  align-self: flex-end;
+  background-color: var(--azul-acento);
+  color: var(--negro-puro);
+  font-family: 'Miranda Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 12px 35px;
+  border: 1px solid var(--negro-puro);
+  cursor: pointer;
+  
+  /* Transición suave y estilos de hover */
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+  user-select: none;
+}
+
+.btn-wiki-general:hover,
+.btn-wiki-general:active {
+  background-color: var(--rosa-intenso);
+  color: var(--negro-puro);
+  transform: translateY(-2px); /* Propiedad CSS 2: Micro-interacción visual */
+}
+
+/* ==========================================================================
+   C. FRANJA GRÁFICA INTERMEDIA
+   ========================================================================== */
+.franja-grafica {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.imagen-franja {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* Propiedad CSS 3: Ajuste proporcional */
+  border: 1px solid var(--negro-puro);
+}
+
+/* ==========================================================================
+   D. GALERÍA DE PROYECTOS (#proyectos)
+   ========================================================================== */
+.galeria-proyectos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px 40px;
+  margin-bottom: 60px;
+}
+
+/* Estructura general de la tarjeta */
+.tarjeta-proyecto {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* 1. Franja lateral izquierda (0°, apilado vertical letra por letra) */
+.franja-lateral-izquierda {
+  width: 60px;
+  height: 345px; /* Coincide con el alto de la imagen */
+  background-color: var(--negro-puro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: 'Miranda Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--blanco);
+  user-select: none;
+  flex-shrink: 0;
+  border-right: 1px solid var(--negro-calido);
+}
+
+.franja-lateral-izquierda .numero-encargo {
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+/* 2. Imagen fija de 345px x 345px (Cuadrado exacto) */
+.link-imagen-proyecto {
+  width: 345px;
+  height: 345px;
+  overflow: hidden;
+  display: block;
+  flex-shrink: 0;
+  background-color: var(--negro-puro);
+}
+
+.img-proyecto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.link-imagen-proyecto:hover .img-proyecto {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* 3. Enlace WIKI al lado derecho (Sin fondo negro, tipografía Times New Roman) */
+.link-wiki-exterior {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 18px; /* Tipografía más pequeña */
+  color: var(--rosa-intenso);
+  writing-mode: vertical-rl; /* Orientación vertical idéntica a la imagen */
+  transform: rotate(180deg);
+  text-decoration: none;
+  margin-left: 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.link-wiki-exterior:hover,
+.link-wiki-exterior:active {
+  color: var(--azul-acento);
+}
+
+/* Ajuste de adaptabilidad para pantallas pequeñas */
+@media (max-width: 950px) {
+  .galeria-proyectos {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .franja-lateral-izquierda {
+    width: 45px;
+    height: 280px;
+  }
+  
+  .link-imagen-proyecto {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/* ==========================================================================
+   E. CONTACTO (#contacto)
+   ========================================================================== */
+.contacto-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 30px;
+  border-top: 2px solid var(--rosa-intenso); /* Separador superior visual */
+  margin-bottom: 50px;
+}
+
+/* Título Contacto: Miranda Sans Bold (48pt → ~64px) */
+.titulo-contacto {
+  font-family: 'Miranda Sans', sans-serif;
+  font-weight: 700;
+  font-size: 42px;
+  color: var(--rosa-intenso);
+  margin-bottom: 15px;
+}
+
+.texto-contacto {
+  font-family: 'Miranda Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--blanco);
+  line-height: 1.4;
+}
+
+.contacto-accion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+/* Botón Perfil Casiopea */
+.btn-perfil {
+  background-color: var(--azul-acento);
+  color: var(--negro-puro);
+  font-family: 'Miranda Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 12px 30px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+
+.btn-perfil:hover,
+.btn-perfil:active {
+  background-color: var(--rosa-intenso);
+  color: var(--negro-puro);
+  transform: translateY(-2px);
+}
+
+/* Correo Electrónico */
+.correo-contacto {
+  font-family: 'Miranda Sans', sans-serif;
+  font-size: 18px;
+  color: var(--blanco);
+  text-decoration: underline;
+  text-underline-offset: 4px; /* Propiedad CSS 9: Subrayado estilizado */
+  transition: color 0.3s ease;
+}
+
+.correo-contacto:hover {
+  color: var(--rosa-intenso);
+}
+
+/* ==========================================================================
+   F. PIE DE PÁGINA (#pie-pagina)
+   ========================================================================== */
+#pie-pagina {
+  width: 100%;
+  height: 50px;
+  background-color: var(--rosa-intenso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.creditos-footer {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--blanco);
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   ADAPTABILIDAD Y RESPONSIVIDAD (Media Queries - Propiedad CSS 10)
+   ========================================================================== */
+
+/* Tablets / Pantallas Medianas (Hasta 850px) */
+@media (max-width: 850px) {
+  .presentacion-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .presentacion-contenido {
+    align-items: flex-start;
+  }
+
+  .btn-wiki-general {
+    align-self: flex-start;
+  }
+
+  .galeria-proyectos {
+    gap: 20px;
+  }
+}
+
+/* Dispositivos Móviles (Hasta 600px) */
+@media (max-width: 600px) {
+  .header-container {
     flex-direction: column;
-    /* Por defecto, se ubica en la segunda columna del grid */
-}
+    justify-content: center;
+    gap: 5px;
+  }
 
-/* --- Galería de Proyectos --- */
-.galeria {
-    display: grid;
-    /* Define 3 columnas de igual tamaño */
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5em; /* Espacio entre las tarjetas */
-}
+  .logo {
+    font-size: 28px;
+  }
 
-/* --- Tarjetas Individuales --- */
-.tarjeta {
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    overflow: hidden; /* Asegura que la imagen no se salga de los bordes redondeados */
-}
+  .nav-links {
+    gap: 15px;
+  }
 
-.tarjeta a {
-    /* El ancla ocupa todo el espacio de su columna en la galería */
-    display: block; /* Permite que el ancla ocupe todo el espacio */
-    width: 100%;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s ease-in-out;
-}
+  .nav-links a {
+    font-size: 18px;
+  }
 
-.tarjeta a:hover {
-    filter: brightness(70%); /* Aplica un filtro de brillo al 70% (más oscuro) */
-    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
-}
+  .main-wrapper {
+    padding-top: 110px;
+  }
 
-.tarjeta img {
-    /* La imagen se ajusta al ancho del ancla */
-    width: 100%;
-    display: block; /* Elimina espacios en blanco debajo de la imagen */
-}
+  .titulo-imagen-escrita {
+    font-size: 42px;
+  }
 
-.tarjeta h3 {
-    text-align: center;
-    padding: 0.5em 0;
-    margin: 0;
-}
+  .titulo-portafolio,
+  .titulo-contacto {
+    font-size: 32px;
+  }
 
+  /* La grilla pasa a 1 sola columna en smartphones */
+  .galeria-proyectos {
+    grid-template-columns: 1fr;
+  }
 
-/* --- Media Query para pantallas pequeñas --- */
-@media (max-width: 900px) {
-    
-    /* Ajusta los márgenes del body para aprovechar el espacio */
-    body {
-        margin: 20px;
-        padding: 1em;
-    }
+  .contacto-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
 
-    /* Cambia el contenedor principal a una sola columna */
-    #container {
-        grid-template-columns: 1fr;
-    }
-
-    /* Cambia la galería de proyectos a una sola columna */
-    .galeria {
-        grid-template-columns: 1fr;
-    }
+  .contacto-accion {
+    align-items: flex-start;
+  }
 }
